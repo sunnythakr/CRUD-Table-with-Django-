@@ -1,0 +1,40 @@
+<!DOCTYPE html> {% extends 'testapp/base.html'%} {% block body_block %}
+<style>
+    input {
+        width: 200px;
+        margin: 4px;
+        padding: 3px;
+        border-radius: 19px;
+        border-style: solid;
+        justify-content: center;
+    }
+    
+    input [type='submit'] {
+        text-decoration: rgb(216, 240, 171);
+    }
+    
+    body {
+        background: rgb(151, 106, 106);
+    }
+    
+    .btn {
+        border-radius: 33px;
+        background-color: brown;
+        font-size: 12px;
+    }
+    
+    .btn:hover {
+        border-radius: 33px;
+        background-color: red;
+        font-size: 12px;
+    }
+</style>
+<div class="conttainer" align='center'>
+    <h1>Employee Update information form</h1>
+    <form method="post">
+        {% csrf_token%} Employee Number: <input type="text" name="eno" value="{{employee.eno}}"><br> Employee Name: <input type="text" name="ename" value="{{employee.ename}}"><br> Employee salary: <input type="text" name="esal" value="{{employee.esal}}"><br>        Employee Address: <input type="text" name="eaddr" value="{{employee.eaddr}}"><br>
+        <input type="submit" name="" class='btn btn-primary btn-lg' value="Update Records">
+
+    </form>
+</div>
+{% endblock %}

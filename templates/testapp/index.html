@@ -1,0 +1,72 @@
+<!DOCTYPE html> {% extends 'testapp/base.html'%} {% block body_block %}
+<style>
+    table {
+        border: 2px solid red;
+    }
+    
+    td {
+        width: 100px;
+    }
+    
+    td a {
+        text-decoration: none;
+    }
+    
+    body {
+        background-color: #b0e7ec;
+        height: 777px;
+    }
+    
+    .a-btn {
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    
+    .btn-lg {
+        border: 2px solid burlywood;
+        background-color: #b8d388;
+        border-radius: 28px;
+        color: white;
+        width: 100px;
+        font-size: 29px;
+    }
+    
+    .btn-lg:hover {
+        background-color: #f31225;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    a:hover {
+        background-color: yellow;
+        border-radius: 8px;
+    }
+</style>
+<div class="container" align='center'>
+    <h1>Employee information DashBoard</h1>
+    <table>
+        <thead>
+            <th>Employee No</th>
+            <th>Employee Name</th>
+            <th>Employee salary</th>
+            <th>Employee Address</th>
+            <th>Action</th>
+
+        </thead>
+        {% for emp in employees%}
+        <tr>
+            <td>{{emp.eno}}</td>
+            <td>{{emp.ename}}</td>
+            <td>{{emp.esal}}</td>
+            <td>{{emp.eaddr}}</td>
+            <td> <a class="a-btn" href="/update/{{emp.id}}/">Update</a> <a class="a-btn" href="/delete/{{emp.id}}/">Delete</a> </td>
+        </tr>
+        {%endfor%}
+    </table><br>
+    <a href="/create" class="btn btn-success btn-lg">Insert New Employees</a>
+</div>
+
+{% endblock %}
